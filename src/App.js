@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import Header from './components/layout/Header';
 import './App.css';
-import Todos from './components/Todos';
+import Todos from './components/todo/Todos';
+import AddTodo from './components/todo/AddTodo';
 
 class App extends Component {
 	state = {
@@ -22,6 +24,8 @@ class App extends Component {
 			}
 		]
 	};
+
+	// Toggle the To Do Item Checkbox
 	// we're in App.js, so we're talking state next, not props
 	toggleComplete = (id) => {
 		this.setState({
@@ -33,20 +37,26 @@ class App extends Component {
 			})
 		});
 	};
+
+	// Delete To Do Item
 	deleteTodo = (id) => {
 		this.setState({
 			todos: [...this.state.todos.filter((todo) => todo.id !== id)]
 		});
 	};
+
 	render() {
 		return (
 			<div className="App">
-				<h1>Todos</h1>
-				<Todos
-					todos={this.state.todos}
-					toggleComplete={this.toggleComplete}
-					deleteTodo={this.deleteTodo}
-				/>
+				<div className="container">
+					<Header />
+					<AddTodo />
+					<Todos
+						todos={this.state.todos}
+						toggleComplete={this.toggleComplete}
+						deleteTodo={this.deleteTodo}
+					/>
+				</div>
 			</div>
 		);
 	}
