@@ -23,7 +23,7 @@ class App extends Component {
 		]
 	};
 	// we're in App.js, so we're talking state next, not props
-	markComplete = (id) => {
+	toggleComplete = (id) => {
 		this.setState({
 			todos: this.state.todos.map((todo) => {
 				if (todo.id === id) {
@@ -33,11 +33,20 @@ class App extends Component {
 			})
 		});
 	};
+	deleteTodo = (id) => {
+		this.setState({
+			todos: [...this.state.todos.filter((todo) => todo.id !== id)]
+		});
+	};
 	render() {
 		return (
 			<div className="App">
 				<h1>Todos</h1>
-				<Todos todos={this.state.todos} markComplete={this.markComplete} />
+				<Todos
+					todos={this.state.todos}
+					toggleComplete={this.toggleComplete}
+					deleteTodo={this.deleteTodo}
+				/>
 			</div>
 		);
 	}
