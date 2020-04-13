@@ -10,17 +10,17 @@ class App extends Component {
 		todos: [
 			{
 				id: uuidv4(),
-				title: 'Get stuff to Mom',
+				title: 'Finish Project',
 				completed: false
 			},
 			{
 				id: uuidv4(),
-				title: 'Call Mom',
+				title: 'Cook Dinner',
 				completed: false
 			},
 			{
 				id: uuidv4(),
-				title: 'Install swaybar',
+				title: 'Call Parents',
 				completed: false
 			}
 		]
