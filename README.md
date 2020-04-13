@@ -7,6 +7,7 @@ A web app for recording a to-do list with the following features
 - New tasks
 - Marking tasks as complete or incomplete
 - Task deletion
+- Link Navigation
 
 This is a personal project developed using the [React JS Crash Course](https://www.youtube.com/watch?v=sBws8MSXN7A) on Youtube. Thank you to [Traversy Media](https://www.traversymedia.com/) for the tutorial.
 
