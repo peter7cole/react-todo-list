@@ -1,3 +1,12 @@
+# To-Do List with React
+__Version__ 1.0.0  
+__Author__ Peter Cole
+
+## Overview
+This is a personal project developed using the React JS Crash Course on [Youtube](https://www.youtube.com/watch?v=sBws8MSXN7A). Thank you to [Traversy Media](https://www.traversymedia.com/) for the tutorial.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
