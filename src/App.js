@@ -1,27 +1,32 @@
 import React, { Component } from 'react';
+import Header from './components/layout/Header';
 import './App.css';
-import Todos from './components/Todos';
+import Todos from './components/todo/Todos';
+import AddTodo from './components/todo/AddTodo';
+import { v4 as uuidv4 } from 'uuid';
 
 class App extends Component {
 	state = {
 		todos: [
 			{
-				id: 1,
-				title: 'Get tax stuff to Mom',
+				id: uuidv4(),
+				title: 'Get stuff to Mom',
 				completed: false
 			},
 			{
-				id: 2,
+				id: uuidv4(),
 				title: 'Call Mom',
 				completed: false
 			},
 			{
-				id: 3,
+				id: uuidv4(),
 				title: 'Install swaybar',
 				completed: false
 			}
 		]
 	};
+
+	// Toggle the To Do Item Checkbox
 	// we're in App.js, so we're talking state next, not props
 	toggleComplete = (id) => {
 		this.setState({
@@ -33,20 +38,36 @@ class App extends Component {
 			})
 		});
 	};
+
+	// Delete To Do Item
 	deleteTodo = (id) => {
 		this.setState({
 			todos: [...this.state.todos.filter((todo) => todo.id !== id)]
 		});
 	};
+
+	// Add To Do Item
+	addTodo = (title) => {
+		const newTodo = {
+			id: uuidv4(),
+			title,
+			completed: false
+		};
+		this.setState({ todos: [...this.state.todos, newTodo] });
+	};
+
 	render() {
 		return (
 			<div className="App">
-				<h1>Todos</h1>
-				<Todos
-					todos={this.state.todos}
-					toggleComplete={this.toggleComplete}
-					deleteTodo={this.deleteTodo}
-				/>
+				<div className="container">
+					<Header />
+					<AddTodo addTodo={this.addTodo} />
+					<Todos
+						todos={this.state.todos}
+						toggleComplete={this.toggleComplete}
+						deleteTodo={this.deleteTodo}
+					/>
+				</div>
 			</div>
 		);
 	}

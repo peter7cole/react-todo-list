@@ -25,7 +25,7 @@ class TodoItem extends Component {
 						onClick={this.props.deleteTodo.bind(this, id)}
 						style={buttonStyle}
 					>
-						x
+						X
 					</button>
 				</p>
 			</div>
@@ -39,13 +39,14 @@ TodoItem.propTypes = {
 };
 
 const buttonStyle = {
-	background: '#ff0000',
+	background: '#ffb300',
 	color: '#fff',
 	border: 'none',
-	padding: '5px 9px',
+	padding: '5px 8px',
 	borderRadius: '50%',
 	cursor: 'pointer',
-	float: 'right'
+	float: 'right',
+	outline: 'none'
 };
 
 export default TodoItem;
