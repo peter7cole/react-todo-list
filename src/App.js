@@ -1,32 +1,23 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
-import './App.css';
 import Todos from './components/todo/Todos';
 import AddTodo from './components/todo/AddTodo';
 import About from './components/pages/About';
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
+import './App.css';
 
 class App extends Component {
 	state = {
-		todos: [
-			{
-				id: uuidv4(),
-				title: 'Finish Project',
-				completed: false
-			},
-			{
-				id: uuidv4(),
-				title: 'Cook Dinner',
-				completed: false
-			},
-			{
-				id: uuidv4(),
-				title: 'Call Parents',
-				completed: false
-			}
-		]
+		todos: []
 	};
+
+	componentDidMount() {
+		axios
+			.get('https://jsonplaceholder.typicode.com/todos?_limit=3')
+			.then((res) => this.setState({ todos: res.data }));
+	}
 
 	// Toggle the To Do Item Checkbox
 	// we're in App.js, so we're talking state next, not props
@@ -43,19 +34,24 @@ class App extends Component {
 
 	// Delete To Do Item
 	deleteTodo = (id) => {
-		this.setState({
-			todos: [...this.state.todos.filter((todo) => todo.id !== id)]
-		});
+		axios
+			.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+			.then((res) =>
+				this.setState({
+					todos: [...this.state.todos.filter((todo) => todo.id !== id)]
+				})
+			);
 	};
 
 	// Add To Do Item
 	addTodo = (title) => {
-		const newTodo = {
-			id: uuidv4(),
-			title,
-			completed: false
-		};
-		this.setState({ todos: [...this.state.todos, newTodo] });
+		axios
+			.post('https://jsonplaceholder.typicode.com/todos', {
+				id: uuidv4(),
+				title,
+				completed: false
+			})
+			.then((res) => this.setState({ todos: [...this.state.todos, res.data] }));
 	};
 
 	render() {

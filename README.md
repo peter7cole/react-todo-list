@@ -4,10 +4,11 @@ __Author__ Peter Cole
 
 ## Overview
 A web app for recording a to-do list with the following features
-- New tasks
+- New tasks with unique keys using [npm/uuid](https://www.npmjs.com/package/uuid)
 - Marking tasks as complete or incomplete
 - Task deletion
-- Link Navigation
+- Link navigation
+- HTTP requests with [Axios](https://www.npmjs.com/package/axios) from the [todos](https://jsonplaceholder.typicode.com/todos) in [jsonplaceholder](https://jsonplaceholder.typicode.com/)
 
 This is a personal project developed using the [React JS Crash Course](https://www.youtube.com/watch?v=sBws8MSXN7A) on Youtube. Thank you to [Traversy Media](https://www.traversymedia.com/) for the tutorial.
 
