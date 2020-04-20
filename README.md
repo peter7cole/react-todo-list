@@ -1,5 +1,5 @@
 # To-Do List with React
-__Version__ 1.2.0  
+__Version__ 1.2.1  
 __Author__ Peter Cole
 
 ## Overview
